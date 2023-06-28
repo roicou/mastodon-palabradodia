@@ -1,0 +1,37 @@
+{
+    "name": "a-palabra-do-dia",
+    "version": "1.0.0",
+    "description": "Bot para Mastodon coa palabra do día do Portal das Palabras",
+    "main": "./dist/app.js",
+    "scripts": {
+        "build": "tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node dist/app.js",
+        "build:start": "npm run build && npm start",
+        "lint": "eslint --ext .js,.ts ."
+    },
+    "keywords": [],
+    "author": "Roi C.",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/jsdom": "^21.1.1",
+        "@types/luxon": "^3.3.0",
+        "@types/node": "^20.3.2",
+        "@typescript-eslint/eslint-plugin": "^5.60.1",
+        "@typescript-eslint/parser": "^5.60.1",
+        "eslint": "^8.43.0",
+        "tsc-alias": "^1.8.6",
+        "tsconfig-paths": "^4.2.0",
+        "typescript": "^5.1.5"
+    },
+    "dependencies": {
+        "cron": "^2.3.1",
+        "dotenv": "^16.3.1",
+        "jsdom": "^22.1.0",
+        "luxon": "^3.3.0",
+        "megalodon": "^6.1.0",
+        "mongoose": "^7.3.1",
+        "winston": "^3.9.0",
+        "winston-daily-rotate-file": "^4.7.1"
+    }
+}

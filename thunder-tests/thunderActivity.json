@@ -1,0 +1,88 @@
+[
+    {
+        "_id": "0082efb2-5e87-4bd6-b1dc-de5efe87f539",
+        "colId": "history",
+        "containerId": "",
+        "name": "https://portaldaspalabras.gal/lexico/palabra-do-dia/orde=data&comeza=&palabra=&data-do=2023-06-28&data-ao=2023-06-28",
+        "url": "https://portaldaspalabras.gal/lexico/palabra-do-dia/orde=data&comeza=&palabra=&data-do=2023-06-28&data-ao=2023-06-28",
+        "method": "POST",
+        "sortNum": 0,
+        "created": "2023-06-28T14:23:13.947Z",
+        "modified": "2023-06-28T14:23:13.947Z",
+        "headers": [],
+        "params": [],
+        "tests": []
+    },
+    {
+        "_id": "00955275-4e01-47fd-a177-fa56918a5778",
+        "colId": "history",
+        "containerId": "",
+        "name": "https://portaldaspalabras.gal/lexico/palabra-do-dia/?orde=data&comeza=&palabra=&data-do=2023-06-28&data-ao=2023-06-28",
+        "url": "https://portaldaspalabras.gal/lexico/palabra-do-dia/?orde=data&comeza=&palabra=&data-do=2023-06-28&data-ao=2023-06-28",
+        "method": "POST",
+        "sortNum": 0,
+        "created": "2023-06-28T14:23:21.024Z",
+        "modified": "2023-06-28T14:23:21.024Z",
+        "headers": [],
+        "params": [
+            {
+                "name": "orde",
+                "value": "data",
+                "isPath": false
+            },
+            {
+                "name": "comeza",
+                "value": "",
+                "isPath": false
+            },
+            {
+                "name": "palabra",
+                "value": "",
+                "isPath": false
+            },
+            {
+                "name": "data-do",
+                "value": "2023-06-28",
+                "isPath": false
+            },
+            {
+                "name": "data-ao",
+                "value": "2023-06-28",
+                "isPath": false
+            }
+        ],
+        "tests": []
+    },
+    {
+        "_id": "8431a054-7081-4872-b1a4-77124b71fce1",
+        "colId": "history",
+        "containerId": "",
+        "name": "https://portaldaspalabras.gal/lexico/palabra-do-dia/",
+        "url": "https://portaldaspalabras.gal/lexico/palabra-do-dia/",
+        "method": "POST",
+        "sortNum": 0,
+        "created": "2023-06-28T14:23:52.690Z",
+        "modified": "2023-06-28T14:24:51.257Z",
+        "headers": [],
+        "params": [],
+        "body": {
+            "type": "formdata",
+            "raw": "",
+            "form": [
+                {
+                    "name": "orde",
+                    "value": "data"
+                },
+                {
+                    "name": "data-do",
+                    "value": "2023-06-28"
+                },
+                {
+                    "name": "data-ao",
+                    "value": "2023-06-28"
+                }
+            ]
+        },
+        "tests": []
+    }
+]
