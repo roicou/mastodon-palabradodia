@@ -12,7 +12,7 @@ class MegalodonService {
     public async startClient(client: MegalodonInterface) {
         this.client = client;
     }
-    private readonly book_emojis = ['📖', '📚', '📕', '📗', '📘', '📙', '📔', '📓', '📒', '📚',]
+    private readonly book_emojis = ['📖', '📚', '📕', '📗', '📘', '📙', '📔', '📓', '📒',]
     public async publishWord() {
         let sended = false;
         let tryCount = 0;
