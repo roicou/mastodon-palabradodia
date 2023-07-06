@@ -5,7 +5,7 @@ import { DateTime } from "luxon";
 import fs from "fs";
 import axios from "axios";
 import { debug } from "console";
-
+import {uuid} from "uuidv4";
 class MegalodonService {
     private client: MegalodonInterface;
     /**
@@ -24,25 +24,27 @@ class MegalodonService {
                 const {message, link_preview, word} = await this.getWord();
                 logger.info('Message:\n', message)
                 logger.debug('link_preview', link_preview)
+                const media_name = uuid() + '.jpg';
                 // download link_preview
                 const media_stream = await axios({
                     method: 'get',
                     url: link_preview,
                     responseType: 'stream'
                 }).then(function (response) {
-                    response.data.pipe(fs.createWriteStream('./media/link_preview.jpg'))
-                    return fs.createReadStream('./media/link_preview.jpg');
+                    response.data.pipe(fs.createWriteStream(`./media/${media_name}`));
+                    return fs.createReadStream(`./media/${media_name}`);
                 });
                 logger.debug('downloaded')
                 const media = await this.client.uploadMedia(media_stream, { description: 'Miniatura da web coa palabra ' + word });
                 logger.debug('media', media.data?.id)
-                const options: any = { scheduled_at: DateTime.local().plus({ seconds: 10 }).toISO(), visibility: 'public' };
+                const options: any = { visibility: 'public' };
                 if(media.data?.id) {
                     options.media_ids = [media.data.id];
                 }
                 logger.debug('options', options)
                 await this.client.postStatus(message, options );
                 sended = true;
+                fs.rmSync(`./media/${media_name}`);
             } catch (error) {
                 logger.error(error);
             }

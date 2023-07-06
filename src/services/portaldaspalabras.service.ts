@@ -27,7 +27,7 @@ class PortaldaspalabrasService {
         if(!definition.length){
             throw new Error('No definition from portal das palabras');
         }
-        let link_preview = await getLinkPreview("https://portaldaspalabras.gal/lexico/palabra-do-dia/ebano/").catch((error) => {
+        let link_preview = await getLinkPreview(url).catch((error) => {
             logger.error(error);
             return null;
         });
