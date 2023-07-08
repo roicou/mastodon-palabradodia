@@ -17,7 +17,7 @@ export default async () => {
     await megalodonService.startClient(client);
     // cron everyday at 18:00
 
-    new CronJob(`0 ${config.cronHour}  * * *`, async () => {
+    new CronJob(`0 ${config.cronHour} * * *`, async () => {
         try {
             await megalodonService.publishWord();
         } catch (error) {
