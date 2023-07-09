@@ -9,6 +9,7 @@ class PortaldaspalabrasService {
     private readonly BASE_URL = 'https://portaldaspalabras.gal/lexico/palabra-do-dia/';
     public async getWord() {
         const today = DateTime.local().toISODate();
+        logger.debug('URL', this.BASE_URL);
         const response = await axios.postForm(this.BASE_URL, { 
             orde: 'data', 
             'data-do': today, 
@@ -17,11 +18,19 @@ class PortaldaspalabrasService {
         if (!response.data) {
             throw new Error('No data from portal das palabras');
         }
+        logger.debug('there are data')
         const html = response.data.replace(/\n/g, '');
         const wordOfDayDom = new JSDOM(html);
         const word = wordOfDayDom.window.document.querySelector('.title').textContent;
-        const wordNormalize = word.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        logger.debug('word', word)
+        let wordNormalize = word.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toLowerCase();
+        // if wordNormalize includes ", " remove it. search with regex
+        if(RegExp(', ').test(wordNormalize)) {
+            wordNormalize = wordNormalize.replace(/, /g, '');	
+        }
+        logger.debug('wordNormalize', wordNormalize)
         const url = `${this.BASE_URL}${wordNormalize}/`;
+        logger.debug('url', url)
         const dictionaryDom = new JSDOM(await axios.get(url).then(res => res.data));
         const definition = dictionaryDom.window.document.querySelector('.palabra-do-dia-definition').textContent.replace(/^\s+/g, '').replace(/\s+$/g, '');
         if(!definition.length){
