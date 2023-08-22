@@ -28,6 +28,9 @@ class PortaldaspalabrasService {
         if(RegExp(', ').test(wordNormalize)) {
             wordNormalize = wordNormalize.replace(/, /g, '');	
         }
+        if(RegExp(' ').test(wordNormalize)) {
+            wordNormalize = wordNormalize.replace(/ /g, '-')
+        }
         logger.debug('wordNormalize', wordNormalize)
         const url = `${this.BASE_URL}${wordNormalize}/`;
         logger.debug('url', url)
